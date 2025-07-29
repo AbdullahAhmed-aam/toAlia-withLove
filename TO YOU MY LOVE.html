@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>from ABD with love <3</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+
+    body {
+      margin: 0;
+      padding: 0;
+      background: #fff0f5;
+      font-family: 'Dancing Script', cursive;
+      overflow: hidden;
+    }
+
+    .heart {
+      color: red;
+      font-size: 24px;
+      position: absolute;
+      animation: fall 5s linear infinite;
+      user-select: none;
+      z-index: 0;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(-100px);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(110vh);
+        opacity: 0;
+      }
+    }
+
+    .message {
+      display: none;
+      font-size: 4rem;
+      color: #ff1493;
+      text-align: center;
+      margin-top: 20vh;
+      font-family: 'Dancing Script', cursive;
+      z-index: 1;
+      position: relative;
+    }
+
+    .sub-message {
+      font-size: 2.5rem;
+      color: #ff69b4;
+      text-align: center;
+      font-family: 'Dancing Script', cursive;
+      margin-top: 1rem;
+    }
+
+    .button-container {
+      text-align: center;
+      margin-top: 5vh;
+      position: relative;
+      z-index: 2;
+    }
+
+    button {
+      padding: 15px 30px;
+      font-size: 1.5rem;
+      background-color: #ff69b4;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-family: 'Dancing Script', cursive;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    .stickman {
+      display: none;
+      width: 100px;
+      margin: 40px auto 0;
+      position: relative;
+      z-index: 1;
+      animation: kiss 2s ease-in-out forwards;
+    }
+
+    @keyframes kiss {
+      0% { transform: scale(0.8); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    .stickman svg {
+      width: 100px;
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+
+<div class="button-container">
+  <button onclick="showLove()">Click Me ❤️</button>
+</div>
+
+<div class="message" id="loveMessage">
+  I LOVE YOU ALIA <3<3<3
+  <div class="sub-message">HAPPY GIRLFRIEND'S DAY!!</div>
+</div>
+
+<div class="stickman" id="stickman">
+  <svg viewBox="0 0 200 100">
+    <circle cx="50" cy="20" r="10" stroke="black" fill="none"/>
+    <line x1="50" y1="30" x2="50" y2="60" stroke="black"/>
+    <line x1="50" y1="40" x2="40" y2="50" stroke="black"/>
+    <line x1="50" y1="40" x2="60" y2="50" stroke="black"/>
+    <line x1="50" y1="60" x2="40" y2="75" stroke="black"/>
+    <line x1="50" y1="60" x2="60" y2="75" stroke="black"/>
+    
+    <circle cx="80" cy="20" r="10" stroke="black" fill="none"/>
+    <line x1="80" y1="30" x2="80" y2="60" stroke="black"/>
+    <line x1="80" y1="40" x2="70" y2="50" stroke="black"/>
+    <line x1="80" y1="40" x2="90" y2="50" stroke="black"/>
+    <line x1="80" y1="60" x2="70" y2="75" stroke="black"/>
+    <line x1="80" y1="60" x2="90" y2="75" stroke="black"/>
+
+    <text x="60" y="15" font-size="12" fill="red">💋</text>
+  </svg>
+</div>
+
+<script>
+  function showLove() {
+    document.getElementById('loveMessage').style.display = 'block';
+    document.getElementById('stickman').style.display = 'block';
+    for (let i = 0; i < 100; i++) {
+      let heart = document.createElement('div');
+      heart.className = 'heart';
+      heart.style.left = Math.random() * window.innerWidth + 'px';
+      heart.style.top = Math.random() * -100 + 'px';
+      heart.innerHTML = '❤️';
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 5000 + Math.random() * 3000);
+    }
+  }
+</script>
+
+</body>
+</html>
