@@ -91,12 +91,55 @@
       width: 100px;
       height: auto;
     }
+    .memories-section {
+  text-align: center;
+  padding: 3rem 1rem;
+}
+#memories {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  margin-top: 40px;
+  flex-wrap: wrap;
+}
+
+.memory {
+  width: 200px;
+  height: auto;
+  border-radius: 12px;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: slideUp 1s ease forwards;
+}
+
+.memory:nth-child(1) {
+  animation-delay: 0.5s;
+}
+
+.memory:nth-child(2) {
+  animation-delay: 1.2s;
+}
+
+@keyframes slideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
   </style>
 </head>
+<section id="memories" style="display: none;">
+  <img class="memory" src="AliaMe.jpg" alt="Memory 1">
+  <img class="memory" src="AliaKittyMe.jpg" alt="Memory 2">
+</section>
+
 <body>
 
 <div class="button-container">
-  <button onclick="showLove()">Click Me ❤️</button>
+  <button id="loveButton" onclick="showLove()">Click Me ❤️</button>
+
 </div>
 
 <div class="message" id="loveMessage">
@@ -141,6 +184,10 @@
       }, 5000 + Math.random() * 3000);
     }
   }
+  document.getElementById("loveButton").addEventListener("click", function () {
+  document.getElementById("memories").style.display = "flex";
+});
+
 </script>
 
 </body>
